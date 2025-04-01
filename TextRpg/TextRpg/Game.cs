@@ -21,6 +21,9 @@ namespace TextRpg
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
 
+        private static Player player;
+        public static Player Player { get { return player; } }
+
         // 게임에 필요한 기능들
         // 1. 게임 시작
         public static void Start()
@@ -34,6 +37,10 @@ namespace TextRpg
 
             // 처음 시작할 씬을 선정
             curScene = sceneDic["Title"];
+
+            player = new Player();
+            player.Power = 10;
+            player.Speed = 8;
         }
 
         // 2. 게임 종료
@@ -49,8 +56,8 @@ namespace TextRpg
             // 게임 동작중에 필요한 작업들
             while(gameOver == false)
             {
-                Console.Clear();
 
+                Console.Clear();   
                 curScene.Render();
                 Console.WriteLine();
                 curScene.Choice();
@@ -79,6 +86,16 @@ namespace TextRpg
             Console.WriteLine(reason);
 
             gameOver = true;
+        }
+
+        public static void PrintInfo()
+        {
+            Console.WriteLine("*********************************");
+            Console.WriteLine("플레이어");
+            Console.WriteLine(" 힘 : {0}\t 속도: {1}", player.Power, player.Speed);
+            Console.WriteLine("*********************************");
+            Console.WriteLine();
+
         }
     }
 }

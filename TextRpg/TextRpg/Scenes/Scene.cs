@@ -13,16 +13,17 @@ namespace TextRpg
 
         public abstract void Choice();
 
+        public void Input()
+        {
+            input = Console.ReadKey(true).Key;
+        }
         public abstract void Result();
 
         public abstract void Wait();
 
         public abstract void Next();
 
-        public void Input()
-        {
-            input = Console.ReadKey(true).Key;
-        }
+        
 
     }
 }

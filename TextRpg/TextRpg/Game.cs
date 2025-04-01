@@ -30,6 +30,7 @@ namespace TextRpg
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Town", new TownScene());
+            sceneDic.Add("Shop", new ShopScene());
 
             // 처음 시작할 씬을 선정
             curScene = sceneDic["Title"];
@@ -51,9 +52,12 @@ namespace TextRpg
                 Console.Clear();
 
                 curScene.Render();
+                Console.WriteLine();
                 curScene.Choice();
                 curScene.Input();
+                Console.WriteLine();
                 curScene.Result();
+                Console.WriteLine();
                 curScene.Wait();
                 curScene.Next();
             }
@@ -63,6 +67,18 @@ namespace TextRpg
         public static void ChangeScene(string sceneName)
         {
             curScene = sceneDic[sceneName];
+        }
+
+        public static void GameOver(string reason)
+        {
+            Console.Clear();
+            Console.WriteLine("*********************************");
+            Console.WriteLine("*           GAME OVER           *");
+            Console.WriteLine("*********************************");
+            Console.WriteLine();
+            Console.WriteLine(reason);
+
+            gameOver = true;
         }
     }
 }

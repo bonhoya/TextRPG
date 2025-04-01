@@ -13,10 +13,10 @@ namespace TextRpg.Scenes
             Console.WriteLine("1. 상인에게 간다.");
             Console.WriteLine("2. 멀리서 수상한 남성을 주시한다.");
             Console.WriteLine("3. 일단 파밍이지, 필드로 나간다.");
-            Console.WriteLine();
+
         }
 
-        
+
 
         public override void Render()
         {
@@ -29,7 +29,7 @@ namespace TextRpg.Scenes
 
         public override void Result()
         {
-            switch(input)
+            switch (input)
             {
                 case ConsoleKey.D1:
                     Console.WriteLine("상인에게 접근합니다.");
@@ -59,8 +59,11 @@ namespace TextRpg.Scenes
         {
             switch (input)
             {
-                case ConsoleKey.Spacebar:
-                    Game.ChangeScene("Title");
+                case ConsoleKey.D1:
+                    Game.ChangeScene("Shop");
+                    break;
+                case ConsoleKey.D2:
+                    Game.GameOver("수상한 사람은 함부로 쫓지 않도록 합시다...");
                     break;
             }
         }

@@ -47,6 +47,8 @@ namespace TextRpg
             // 게임 동작중에 필요한 작업들
             while(gameOver == false)
             {
+                Console.Clear();
+
                 curScene.Render();
                 curScene.Choice();
                 curScene.Input();

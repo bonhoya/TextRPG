@@ -60,7 +60,7 @@ namespace TextRpg.Scenes
         public override void Wait()
         {
             Console.WriteLine("계속하시려면 아무키나 눌러주세요...");
-            Console.WriteLine();
+            Console.ReadKey();
         }
 
         public override void Next()
